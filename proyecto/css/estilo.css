@@ -1,0 +1,854 @@
+/*-------Definimos Variables-------*/
+:root{
+    
+    /*--------Colores-------*/
+    /*--------Tono Principal-------*/
+    --tono: 324;
+    --complementario: 54;
+    --contraste: 214;
+    /*--------Paleta Monocromática principal-----*/
+    --color-principal: hsla(var(--tono), 100%, 40%, 1);
+    --color-principal-medio: hsla(var(--tono), 100%, 86%, 1);
+    --color-principal-claro: hsla(var(--tono), 100%, 98%, 1);
+    --color-principal-oscuro: hsla(var(--tono), 100%, 15%, 1);
+    /*--------Color Coplementario-----*/
+    --color-complementario: hsla(var(--complementario), 100%, 48%, 1);
+    /*--------Color contraste oscuro------*/
+    --color-contraste-oscuro: hsla(var(--contraste), 13%, 10%, 1);
+    --color-contraste-medio: hsla(var(--contraste), 15%, 40%, 1);
+    /*---------Valores------*/
+    --color-blanco: white;
+    /*-----------Topografía-------*/
+    --fuente-principal:  'Source Sans Pro', sans-serif;
+    /*----------Peso de la Fuente-------*/
+    --light: 300;
+    --normal: 400;
+    --bold:700;
+}
+/*-------------Configuraciones Globales------------------------------*/
+h1, h2, h3, h4, h5, h6, p, a, span{
+    color: var(--color-contraste-oscuro);
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+.light{
+    font-weight: var(--light);
+}
+.normal{
+    font-weight: var(--normal);
+}
+.bold{
+    font-weight: var(--bold);
+}
+/*------------Reseteando los estilos del Navegador---------*/
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: var(--fuente-principal);
+}
+/*------------Pantalla para Celular-------*/
+/*------------Estructura sliders--------------*/
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+.parte1, .parte2{
+     width: 100vw;
+}
+.parte1{
+    background-color: #d7dbdd;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.parte2{
+    background-color: #f48fb1;
+    position: absolute;
+    opacity: 1;
+    min-height: 100vh;
+    transition: 5s all ease-in-out;
+    left: 100%;
+    pointer-events: none;
+/*---------Grid Celular y Tablet---------*/
+display: grid;
+grid-template-columns: repeat(4, 1rf);
+grid-template-rows: 60px, 250px, 120px;
+grid: 20px;
+grid-gap: 20px;
+}
+.entrar{
+    left: 0%;
+    pointer-events: all;
+}
+/*------------Parte 1 Celular------------*/
+.cabecera{
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    background-image:  url('../img/imagen1.jpg');
+    background-size: contain;
+    background-position: center;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+.cabecera__title h1{
+    font-size: 1.75rem;
+    color: white;
+}
+.cabecera__title h2{
+    font-size: 1.2rem;
+    font-weight: var(--normal);
+    color: white;
+}
+.section{
+    padding: 20px;
+    height: auto;
+}
+.section__title{
+    margin-bottom: 5rem;
+}
+.section__skills{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 1rem;
+}
+.skill{
+    background-color: var(--color-principal-claro);
+    padding: 0.75rem;
+    border-radius: 10px;
+}
+.skill__txt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.skill__tex h5{
+    text-transform: uppercase;
+}
+.skill__loader--ex{
+    width: 100%;
+    padding: 3px;
+    background-color: var(--color-principal-medio);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 1rem;
+}
+.skill__loader--int{
+    height: 4px;
+    background-color: var(--color-principal);
+    border-radius: 1rem;
+}
+.section__skills .skill:nth-child(1) .skill__loader--int{
+    width: 10%;
+}
+.section__skills .skill:nth-child(2) .skill__loader--int{
+    width: 15%;
+}
+.section__skills .skill:nth-child(3) .skill__loader--int{
+    width: 25%;
+}
+.section__btns{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:20px;
+    min-height: 3.5rem;
+}
+.section__btns a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .15rem;
+    background-color: var(--color-complementario);
+    padding: .7rem;
+    border-radius: 15px;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: 2s all ease-in-out;
+}
+.section__btns .bx{
+    font-size: 1.3rem;
+}
+.section__btns a:nth-child(1){ 
+    background: linear-gradient(70deg, blue, pink);
+    background-size: cover;
+    background-position: 100% 100%;
+    background-size: 200%;
+}
+.section__btns a:hover:nth-child(1){
+    background-position: 0% 20%;
+}
+.section__btns a:nth-child(2){
+    background-color: var(--color-principal);
+    color:var(--color-blanco);
+    width: 100%;
+}
+.section__btns a:hover:nth-child(2){
+    background-color: var(--color-contraste-oscuro);
+}
+/*-----------------parte 2 Celular----------------*/
+/*--------------Header------------------*/
+.header{
+    background: linear-gradient(70deg, blue, pink);
+    height: 60px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    justify-items: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    grid-column: 1/5;
+    grid-row: 1/2;
+}
+.header__a{
+    color: var(--color-blanco);
+    font-weight: var(--bold);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .2s ease-in-out;
+}
+.header__icon{
+    font-size: 30px;
+}
+.header__a:hover{
+    color: var(--color-contraste-oscuro);
+    transform: scale(.9);
+}
+/*------Infoormación---Parte 2----Celular------*/
+.info__foto{
+    grid-column: 1/3;
+    position: relative;
+}
+.info__img{
+    margin-top: -40%;
+    height: calc(100%+40px);
+    width: 100%;
+    border-radius: 0 0 20px 0;
+    object-fit: cover;
+}
+.info__data{
+    grid-column: 3/5;
+    padding: 20px 0 0 0;
+}
+.info__nombre{
+    margin-bottom: 16px;
+}
+.info__nombre h1{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: var(--bold);
+}
+.info__nombre h2{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: var(--light);
+}
+info__li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.info__icon i{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.info__txt p:nth-child(1){
+    font-size: 10px;
+}
+.info__txt p:nth-child(2){
+    font-size: 12px;
+    font-weight: var(--bold);
+}
+/*----------Perfil Profecionsl----Parte 2 Celular-----*/
+.profile{
+    padding: 0 20px;
+    margin-bottom: 25px;
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.profile__titulo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+.profile__title i{
+    font-size: 15px;
+    margin-right: 5px;
+}
+.profile__title h2{
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.profile__txt p{
+    font-size: 12px;
+    font-weight: var(--light);
+    line-height: 20px;
+}
+/*-------Estudios---Parte 2---Celular----*/
+.estudios{
+    padding: 0 20px;
+    margin-bottom: 25px;
+    grid-column: 1/5;
+    grid-row: 4/5;
+}
+.estudio__titulo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+.estudio__titulo i{
+    font-size: 15px;
+    margin-right: 5px;
+}
+.estudio__titulo h2{
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.estudio__info table{
+    font-size: 12px;
+}
+.estudio__info td{
+    padding-bottom: 2px;
+}
+.estudio__year{
+    font-weight: var(--bold);
+    padding-right: 15px;
+}
+/*-----Social Bar Flotante---Celular---*/
+.rrss{ 
+    position: fixed;
+    bottom: 1rem;
+    left: 85%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    min-width: calc(100%-40px);
+}
+.rrss__icons{
+    background-color: var(--color-contraste-oscuro);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5rem;
+    padding: .35rem;
+    width: 100%;
+    border-radius: 1.2rem;
+}
+.rrss__icons a{
+    color: var(--color-blanco);
+    font-size: 2.5rem;
+    transition: .35 all ease-out;
+}
+.rrss__icons a:hover{
+    color: var(--color-principal);
+    transform: scale(1.2);
+}
+/*------Pantalla para Tablets------*/
+@media screen and (min-width: 768px){
+/*------Parte 1------Tablets------------*/
+    .cabecera{
+        height: 35%;
+        padding: 40px;
+        border-radius: 0 0 30px 30px;
+    }
+    .cabecera__title h1{
+        font-size: 2rem;
+    }
+    .section{
+        padding: 40px;
+        height: auto;
+    }
+    .section__title{
+        margin-bottom: 1rem;
+    }
+    .section__title h3{
+        font-size: 1.75rem;
+    }
+    .section__skills{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap:30px;
+        margin-bottom: 30px;
+    }
+    .skill{
+        background-color: var(--color-principal-claro);
+        padding: 1rem;
+        border-radius: 30px;
+    }
+    .skill__txt{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .skill__txt h5, .skill__txt span{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+    .skill__loader--ex{
+        width: 100%;
+        padding: 7px;
+        background-color: var(--color-principal-medio);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 1rem;
+    }
+    .skill__loader--int{
+        height: 7px;
+        background-color: var(--color-principal);
+        border-radius: 1rem;
+    }
+    .section__btns{
+        display: grid;
+        grid-gap:30px;
+        min-height: 3.5rem;
+    }
+    .section__btns a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .15rem;
+        background-color: var(--color-complementario);
+        padding: 2rem;
+        border-radius: 20px;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    .section__btns .bx{
+        font-size: 1.5rem;
+    }
+    .section__btns a:nth-child(2){
+        width: 113%;
+        border-radius: 20px 0 0 20px;
+    }
+    /*--------Parte 2 Tablet-------*/
+    .parte2{
+        background-color: var(--color-blanco);
+        position: absolute;
+        opacity: 1rem;
+        min-height: 100vh;
+        transition: 5s all ease-in-out;
+        left: 100%;
+        pointer-events: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 80px minmax(370px, 30vh) 170px;
+    }
+    .entrar{
+        left: 0%;
+        pointer-events: all;
+    }
+    /*------------Header de la parte 2----------Tablets---------*/
+    .header{
+        background: linear-gradient(70deg, blue, pink);
+        height: 80px;
+        border-radius: 0 0 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        position: relative;
+        z-index: 2;
+    }
+    .header__a{
+        color: var(--color-blanco);
+        font-weight: var(--bold);
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .25 ease-in-out;
+    }
+    .header__icon{
+        font-size: 35px;
+    }
+    .header__a:hover{
+        color: var(--color-contraste-oscuro);
+        transform: scale(.9);
+    }
+    /*-------Información---Foto---Tablets---------*/
+    .info__foto{
+        grid-column: 1/3;
+        position: relative;
+    }
+    .info__data{
+        grid-column: 3/5;
+        padding: 40px 0 0 20px;
+    }
+    .info__nombre{
+        margin-bottom: 16px;
+    }
+    .info__nombre h1{
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: var(--bold);
+    }
+    .info__nombre h2{
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: var(--light);
+    }
+    .info__li{
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+    .info__icon i{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .info__txt p:nth-child(1){
+        font-size: 15px;
+    }
+    .info__txt p:nth-child(2){
+        font-size: 20px;
+        font-weight: var(--bold);
+    }
+    /*-------Profesión---Parte 2---Tablets-----*/
+    .profile{
+        padding: 20px 40px;
+        margin-bottom: 30px;
+    }
+    .profile__title{
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+    }
+    .profile__title i{
+        font-size: 25px;
+        margin-right: 5px;
+    }
+    .profile__title h2{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    .profile__txt p{
+        font-size: 16px;
+        font-weight: var(--light);
+        line-height: 20px;
+    }
+    /*------Estudios----Parte 2-----Tablets-----*/
+    .estudios{
+        padding: 0 40px;
+        margin-bottom: 25px;
+    }
+    .estudio__titulo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1px;
+    }
+    .estudio__titulo i{
+        font-size: 25px;
+        margin-right: 5px;
+    }
+    .estudio__titulo h2{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    .estudio__info table{
+        font-size: 16px;
+    }
+    .estudio__info td{
+        padding-bottom: 20px;
+    }
+    .estudio__year{
+        font-size: var(--bold);
+        padding-right: 15px;
+    }
+    /*------Social Bar Flotante----Tablet-----*/
+    .rrss{
+        position: fixed;
+        bottom: 1rem;
+        left: 85%;
+        transform: translate(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: calc(100%-40px);
+    }
+    .rrss__icons{
+        padding: 1rem;
+        border-radius: 30px;
+    }
+}
+@media screen and (mim-width:1024px){
+    /*----------Parte 1---------Escritorio------*/
+    .parte1{
+        display: flex;
+    }
+    .cabecera{
+        width: 40%;
+        height: 100%;
+        border-radius: 0 40px 40px 0;
+        background-position: 80% 0;
+        padding: 4rem;
+    }
+    .cabecera__title h1{
+        font-size: 3rem;
+    }
+    .cabecera__title h2{
+        font-size: 2rem;
+    }
+    /*------sección de skills----Escritorio*/
+    .section{
+        width: 55%;
+        padding: 6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .section__title{
+        margin-bottom: 2rem;
+    }
+    .section__title h3{
+        font-size: 3rem;
+    }
+    .section__skills{
+        height: 40%;
+    }
+    .skill{
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+    }
+    .skill__txt h5, .skill__txt span{
+        font-size: 1.75rem;
+    }
+    .skill__loader--ex{
+        padding: 12px;
+    }
+    .skill__loader--int{
+        height: 10px;
+    }
+    /*----Botones------Escritorio------*/
+    .section__btns{
+        display: grid;
+        grid-template-columns: repeat(2, 1rf);
+        grid-gap:30px;
+        min-height: 3.5rem;
+    }
+    .section__btns a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .15rem;
+        background-color: var(--color-complementario);
+        padding: 2.5rem;
+        border-radius: 30px;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .section__btns .bx{
+        font-size: 3.5rem;
+    }
+    .section__btns a:nth-child(2){
+        width: 100%;
+        border-radius: 30px;
+    }
+    /*-------Parte 2--------- Escritorio---------*/ 
+    .parte2{
+        background-color: var(--color-blanco);
+        position: absolute;
+        opacity: 1rem;
+        min-height: 100vh;
+        transition: 5s all ease-in-out;
+        left: 100%;
+        pointer-events: none;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 120px minmax(70px, 27vh) 150px, 25vh;
+    }
+    .entrar{
+        left: 0%;
+        pointer-events: all;
+    }
+    /*------------Header de la parte 2----------Escritorio---------*/
+    .header{
+        background: linear-gradient(70deg, blue, pink);
+        height: 120px;
+        border-radius: 0 0 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 60px;
+        position: relative;
+        z-index: 2;
+        grid-column: 1/13;
+    }
+    .header__a{
+        color: var(--color-blanco);
+        font-weight: var(--bold);
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .2s ease-in-out;
+    }
+    .header__icon{
+        font-size: 70px;
+    }
+    .header__a:hover{
+        color: var(--color-contraste-oscuro);
+        transform: scale(.9);
+    }
+    /*-------Información---Foto---Escritorio---------*/
+    .info__foto{
+        grid-column: 1/5;
+        grid-row: 2/5;
+        position: relative;
+        height: 100%;
+        z-index: 1;
+    }
+    .info__img{
+        margin-top: -40px;
+        height: calc(100% + 40px);
+        width: 100%;
+        border-radius: 0 0 40px 0;
+        object-fit: cover;
+        object-position: 80%;
+    }
+    .info__data{
+        grid-column: 5/12;
+        padding: 40px 0 0 40px;
+    }
+    .info__nombre{
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .info__nombre h1{
+        font-size: 45px;
+        text-transform: uppercase;
+        font-weight: var(--bold);
+        margin-right: 2rem;
+    }
+    .info__nombre h2{
+        font-size: 45px;
+        text-transform: uppercase;
+        font-weight: var(--light);
+        position: relative;
+    }
+    .info__nombre h2:before{
+        content: "";
+        width: 3px;
+        height: 70%;
+        background-color: var(--color-contraste-oscuro);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -1rem;
+    }
+    info__ul{
+        display: flex;
+    }
+    .info__li{
+        display: flex;
+        align-items: center;
+        margin-right: 35px;
+    }
+    .info__icon i{
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+    .info__txt p:nth-child(1){
+        font-size: 16px;
+    }
+    .info__txt p:nth-child(2){
+        font-size: 20px;
+        font-weight: var(--bold);
+    }
+    /*-------Profesión---Parte 2---Escritorio-----*/
+    .profile{
+        padding: 0 40px;
+        margin-bottom: 0px;
+        grid-column: 5/12;
+    }
+    .profile__title{
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+    }
+    .profile__title i{
+        font-size: 25px;
+        margin-right: 5px;
+    }
+    .profile__title h2{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    .profile__txt p{
+        font-size: 20px;
+        font-weight: var(--light);
+        line-height: 36px;
+    }
+    /*------Estudios----Parte 2-----Escritorio-----*/
+    .estudios{
+        padding: 0 40px;
+        grid-column: 5px;
+    }
+    .estudio__titulo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+    }
+    .estudio__titulo i{
+        font-size: 30px;
+        margin-right: 5px;
+    }
+    .estudio__titulo h2{
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    .estudio__info table{
+        font-size: 20px;
+    }
+    .estudio__info td{
+        padding-bottom: 2px;
+    }
+    .estudio__year{
+        font-size: var(--bold);
+        padding-right: 15px;
+    }
+    /*------Social Bar Flotante----Escritorio-----*/
+    .rrss{
+        position: fixed;
+        bottom: inherit;
+        left: inherit;
+        right: 0rem;
+        top: 50%;
+        z-index: 3;
+        transform: translate(-50%);
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        min-width: initial;
+    }
+    .rrss__icons{
+        display: flex;
+        flex-direction: column;
+        z-index: 4;
+        background-color: var(--color-contraste-oscuro);
+        gap: 3rem;
+        padding: 2rem 0.5rem 2rem 1rem;
+        border-radius: 2rem 0 0 2rem;
+    }     
+    .rrss__icons .bx{
+        font-size: 3.5rem;
+    }
+}
